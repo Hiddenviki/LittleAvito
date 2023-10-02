@@ -25,19 +25,32 @@ public class ProductController {
 
     @GetMapping ("/product/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("product", productService.getProductById(id));
-
-        return "product-info";
+//        model.addAttribute("product", productService.getProductById(id));
+//        return "product-info";
+        try {
+            Product product = productService.getProductById(id);
+            if (product == null) {
+                // Можно обработать случай, когда продукт не найден
+                return "product-not-found"; // Создайте соответствующее представление
+            }
+            model.addAttribute("product", product);
+            return "product-info";
+        } catch (Exception e) {
+            // Обработка исключения, если оно произошло
+            e.printStackTrace();
+            return "ОШИБКА";
+        }
     }
+
     @PostMapping("/product/create")
-    public String createProduct (Product product) {
+    public String createProduct(Product product) {
         productService.saveProduct(product);
         return "redirect:/";
     }
 
     @PostMapping("/product/delete/{id}")
-    public String deleteProduct (@PathVariable Long id) {
-        productService.deliteProduct(id);
+    public String deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
         return "redirect:/";
     }
 }

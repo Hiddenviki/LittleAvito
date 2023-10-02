@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ProductService {
     private List<Product> products = new ArrayList<>();
-    private long id=0;
+    private long id=1;
 
     {
         products.add(new Product(id++,"Название1","описание1", 301, "Город1", "Автор1"));
@@ -24,13 +24,14 @@ public class ProductService {
         products.add(product);
     }
 
-    public void deliteProduct(Long id){
+    public void deleteProduct(Long id){
         products.removeIf(product -> product.getId().equals(id));
     }
 
     public Product getProductById(Long id) {
-        for (Product product : products) {
-            if (product.getId().equals(id)) return product;
+//        System.out.println("Из сервиса "+id);
+        for (Product product_ : products) {
+            if (product_.getId().equals(id)) return product_;
         }
         return null;
     }

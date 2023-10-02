@@ -8,10 +8,10 @@
 <h1>Авиииито</h1><hr>
 <h4>Много товаров</h4>
 <div th:each="product : ${products}">
-    <p th:text="${product.title}">
-<!--        <a th:href="@{/product/{id}(id=${product.id})}">Подробнее...</a>-->
-    <a href="product-info.html" th:href="@/product/${product.id}">Подробнее</a>
-    </p>
+    <p th:text="${product.title}"></p>
+    <p th:text="${product.id}"></p>
+<!--    <a th:href ="@{/product/${product.id}}">Подробнее</a>-->
+    <a th:href="@{/product/{id}(id=${product.id})}">Подробнее</a>
     <hr>
 </div>
 
