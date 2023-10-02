@@ -7,6 +7,10 @@
 <body>
 <h1>Авиииито</h1><hr>
 <h4>Много товаров</h4>
+<form action=" " method="get">
+    Поиск по названию объявления: <input type="text" name="title"><br>
+    <input type="submit" value="Поиск" />
+</form>
 <div th:each="product : ${products}">
     <p th:text="${product.title}"></p>
     <p th:text="${product.id}"></p>

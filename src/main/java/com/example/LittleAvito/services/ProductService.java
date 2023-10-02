@@ -1,6 +1,9 @@
 package com.example.LittleAvito.services;
 
 import com.example.LittleAvito.Models.Product;
+import com.example.LittleAvito.repositories.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 
@@ -8,31 +11,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j // это от lombok
+@RequiredArgsConstructor
 public class ProductService {
-    private List<Product> products = new ArrayList<>();
-    private long id=1;
+    private final ProductRepository productRepository; //оп оп берем этот интерфейс
 
-    {
-        products.add(new Product(id++,"Название1","описание1", 301, "Город1", "Автор1"));
-        products.add(new Product(id++,"Название2","описание2", 302, "Город2", "Автор2"));
+    public List<Product> list(String title) {
+        if (title != null) return productRepository.findByTitle(title); //если название сущевствет
+        return productRepository.findAll();
     }
 
-    public List<Product> list() { return products; }
-
     public void saveProduct (Product product) {
-        product.setId(id++);
-        products.add(product);
+        log.info("Сохраняю {}",product); //оно сохранит стороковое представление
+        productRepository.save(product);
     }
 
     public void deleteProduct(Long id){
-        products.removeIf(product -> product.getId().equals(id));
+        productRepository.deleteById(id);
     }
 
     public Product getProductById(Long id) {
-//        System.out.println("Из сервиса "+id);
-        for (Product product_ : products) {
-            if (product_.getId().equals(id)) return product_;
-        }
-        return null;
+        return productRepository.findById(id).orElseThrow(); //еще проверяем если нет такого то выбрасываем ошибку
+
     }
 }
