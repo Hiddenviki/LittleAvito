@@ -1,3 +1,31 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Little Avito</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Авиииито</h1>-->
+<!--<hr>-->
+<!--<h4>Подробная информация о товаре</h4>-->
+<!--<div>-->
+<!--    <div1 th:each="image : ${images}">-->
+<!--    <img src="/images/${image.id}" height="60px"/><br><br>-->
+<!--&lt;!&ndash;    <img src="/images/${product.images.get(1)?if_exists}" height="60px"/><br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <img src="/images/${product.images.get(2)?if_exists}" height="60px"/><br><br>&ndash;&gt;-->
+<!--    </div1>-->
+<!--    <b>Название товара: </b><span th:text="${product.title}"></span><br>-->
+<!--    <b>Описание товара: </b><span th:text="${product.description}"></span><br>-->
+<!--    <b>Цена: </b><span th:text="${product.price}"></span><br>-->
+<!--    <b>Город: </b><span th:text="${product.city}"></span><br>-->
+<!--    <b>Автор: </b><span th:text="${product.author}"></span><br>-->
+<!--    <hr>-->
+<!--    <form th:action="@{/product/delete/{id}(id=${product.id})}" method="post">-->
+<!--        <input type="submit" value="Удалить товар" />-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,6 +37,9 @@
 <hr>
 <h4>Подробная информация о товаре</h4>
 <div>
+    <div th:each="image : ${images}">
+        <img th:src="@{/images/{id}(id=${image.id})}" height="60px"/><br><br>
+    </div>
     <b>Название товара: </b><span th:text="${product.title}"></span><br>
     <b>Описание товара: </b><span th:text="${product.description}"></span><br>
     <b>Цена: </b><span th:text="${product.price}"></span><br>
