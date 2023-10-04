@@ -7,9 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -17,33 +15,37 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
-    @Column(name="email")
+    @Column(name = "email", unique = true)
     private String email;
-    @Column(name="phoneNumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="active")
+    @Column(name = "active")
     private boolean active;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "image_id")
     private Image avatar;
-    @Column(name="password") //можно еще прописать length = 1000
+    @Column(name = "password", length = 1000)
     private String password;
-    @ElementCollection(targetClass = Role.class, fetch = FetchType. EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn (name = "user_id"))
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
-    private Set<Role> roles = new HashSet<>() ;
-    private LocalDateTime dateofCreation;
+    private Set<Role> roles = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Product> products = new ArrayList<>();
+    private LocalDateTime dateOfCreated;
+
 
     @PrePersist
-    private void init(){
-        dateofCreation = LocalDateTime.now();
+    private void init() {
+        dateOfCreated = LocalDateTime.now();
     }
 
-    //security
+    // security
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
