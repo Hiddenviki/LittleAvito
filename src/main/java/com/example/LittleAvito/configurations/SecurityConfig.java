@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/") // Указываем URL перенаправления после успешной аутентификации
-                .failureUrl("/hello")
+//                .failureUrl("/error")
                 .permitAll()
                 .and()
                 .logout()
