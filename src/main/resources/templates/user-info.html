@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>LittleAvito</title>
+</head>
+<body>
+<h1>LittleAvito</h1><hr>
+<h3>Подробная информация о пользователе <span th:text="${user.name}"></span></h3>
+<b>Номер телефона: </b> <span th:text="${user.phoneNumber}"></span><br>
+<b>Email: </b> <span th:text="${user.email}"></span><br>
+<h4>Товары пользователя <span th:text="${user.name}"></span></h4>
+<div th:if="${products}">
+  <div th:each="product : ${products}">
+    <div>
+      <p><b th:text="${product.title}"></b> <span th:text="${product.price}"></span> руб. | <a th:href="@{'/user/' + ${product.user.id}}">Подробнее...</a></p>
+
+    </div>
+  </div>
+</div>
+<div th:unless="${products}">
+  <h3>Товаров нет</h3>
+</div>
+<div th:if="${errorMessage}">
+  <h2 style="color: red" th:text="${errorMessage}"></h2>
+</div>
+</body>
+</html>

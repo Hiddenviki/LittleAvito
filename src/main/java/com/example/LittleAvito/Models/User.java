@@ -37,15 +37,20 @@ public class User implements UserDetails {
     private Set<Role> roles = new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     private List<Product> products = new ArrayList<>();
-    private LocalDateTime dateOfCreated;
+    private LocalDateTime dateOfCreation;
 
 
     @PrePersist
     private void init() {
-        dateOfCreated = LocalDateTime.now();
+        dateOfCreation = LocalDateTime.now();
     }
 
     // security
+
+    public boolean isAdmin() {
+        return roles.contains(Role.ROLE_ADMIN);
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

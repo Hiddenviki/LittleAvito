@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fc2e0e4-f4f1-410f-afe1-a5080abede41" name="Changes" comment="Подправила шаблоны">
+    <list default="true" id="3fc2e0e4-f4f1-410f-afe1-a5080abede41" name="Changes" comment="Теперь вход работает">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user-info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/Models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/configurations/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/configurations/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/LittleAvito/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/product-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/Models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/configurations/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/configurations/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/LittleAvito/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/product-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/product-info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696449336819</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Теперь вход работает">
+      <created>1696450213666</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696450213666</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +194,7 @@
     <MESSAGE value="теперь к товарам можно добавлять фотографии" />
     <MESSAGE value="Теперь есть регистрация и вход" />
     <MESSAGE value="Подправила шаблоны" />
-    <option name="LAST_COMMIT_MESSAGE" value="Подправила шаблоны" />
+    <MESSAGE value="Теперь вход работает" />
+    <option name="LAST_COMMIT_MESSAGE" value="Теперь вход работает" />
   </component>
 </project>
